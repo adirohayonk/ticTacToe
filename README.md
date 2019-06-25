@@ -7,7 +7,9 @@ clone the repository
 git clone https://github.com/adirohayonk/ticTacToe.git
 ```
 run the game by
+```python
 python tic_tac_toe.py
+```
 
 There are few options to play the game
 ## Play against computer
