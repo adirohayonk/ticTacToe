@@ -190,7 +190,7 @@ class Game():
         newGame = input("New game(Y, N)?:")
         if newGame in ['Y', 'y', 'yes', 'Yes', 'YES']:
             if gameType == "single":
-                self.singlePlayerGame()
+                self.singlePlayerGame(self.choosedLevel)
             else:
                 self.multiPlayerGame()
         else:
@@ -210,7 +210,15 @@ class Game():
             self.display_game()
             player = self.switch_player(player)
 
-    def singlePlayerGame(self):
+    def singlePlayerGame(self, choosedLevel):
+        self.choosedLevel = choosedLevel
+        computerLevel = "Easy"
+        if self.choosedLevel == 1:
+            computerLevel = "IMPOSSIBLE"
+        if self.choosedLevel == 2:
+            computerLevel = "Medium"
+        print(f"You play against a computer in level:{computerLevel}")
+
         self.gameBoard, player = self.initateGame()
         computerPlayer = computer.Computer(self)
         while True:
@@ -223,7 +231,7 @@ class Game():
                 self.display_game()
                 self.newGame("single")
             player = self.switch_player(player)
-            self.gameBoard = computerPlayer.computerMove("Hard")
+            self.gameBoard = computerPlayer.computerMove(computerLevel)
             result, winningElements = self.check_winner()
             if result is not None:
                 self.display_game(winningElements)

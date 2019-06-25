@@ -1,9 +1,18 @@
 import argparse
-import random
-import os
 import game
 import tester
-import computer
+
+
+def readInt(Question):
+    verify = False
+    result = 0
+    while not(verify):
+        try:
+            result = int(input(Question))
+            verify = True
+        except ValueError:
+            print("Wrong Value")
+    return result
 
 
 def main():
@@ -19,11 +28,13 @@ def main():
         testerObj.testerRunner(args.tester)
         exit(0)
 
-    numberOfPlayers = int(input("How many players "))
+    numberOfPlayers = readInt("How many players: ")
     if numberOfPlayers == 2:
         gameObj.multiPlayerGame()
     elif numberOfPlayers == 1:
-        gameObj.singlePlayerGame()
+        computerLevel = readInt("Level(1:Hard, 2:Medium, 3:Easy, Default:Easy")
+        gameObj.singlePlayerGame(computerLevel)
+
 
 if __name__ == '__main__':
     main()

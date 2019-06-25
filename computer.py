@@ -117,7 +117,7 @@ class Computer():
             return winPosExist, self.board
         return False, self.board
 
-    def computerMoveHard(self):
+    def computerMoveImpossible(self):
         if self.computerTurnNumber == 1:
             if self.board[1][1] == 0:
                 self.gameObj.add_piece(2, 1, 1)
@@ -135,7 +135,7 @@ class Computer():
             self.board = self.computerMoveEasy()
         if level == "Medium":
             self.board = self.computerMoveMedium(2)
-        if level == "Hard":
-            self.board = self.computerMoveHard()
+        if level == "IMPOSSIBLE":
+            self.board = self.computerMoveImpossible()
         self.computerTurnNumber += 1
         return self.board
