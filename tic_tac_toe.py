@@ -32,7 +32,7 @@ def main():
     if numberOfPlayers == 2:
         gameObj.multiPlayerGame()
     elif numberOfPlayers == 1:
-        computerLevel = readInt("Level(1:Hard, 2:Medium, 3:Easy, Default:Easy")
+        computerLevel = readInt("Level(1:Hard, 2:Medium, 3:Easy, Default:Easy:")
         gameObj.singlePlayerGame(computerLevel)
 
 
